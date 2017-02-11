@@ -30,6 +30,7 @@ INDEX
 	
 - RELATIONSHIP FIELDS
 
+- FIELD API REFERENCE
 ---
 ####1. FIELD OPTION
 
@@ -138,5 +139,16 @@ The explanation in the documentation for the above 3-dimensional tuples is reall
 	
 	- It is all the same with CharField except it used emailvalidator to check whether it is valid e-mail address. 
 	
-- FileField
-	- 
+- FileField (*)
+	- Basically, it is a file-__upload__ field. (to handle __upload__)
+	- It takes two optional arguments (upload_to & storage)
+	- FileField.upload_to: It provides the way of setting the file-upload-directory and file-name. 
+	- FileField.stoage: It is responsible for storage and retrieval. 
+
+
+	
+	
+- ImageField
+	- __Very similar to FileField.__
+	- It check whether the image is valid. 
+	- It takes two optional arguments (upload_to & storage)
