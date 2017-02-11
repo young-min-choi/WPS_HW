@@ -1,0 +1,89 @@
+#Model Field reference
+~~인간적으로 더럽게 많다.~~
+INDEX 
+
+- FIELD OPTIONS
+	- BLANK
+	- NULL
+	- CHOICES
+	- DEFAULT
+	- EDITABLE
+	- HELP_TEXT
+	- PRIMARY_KEY
+	- UNIQUE
+	
+- FIELD TYPES
+	- AUTOFIELD
+	- BooleanField
+	- CharField
+	- DateField
+	- DateTimeField
+	- DecimalField
+	- DurationField
+	- EmailField
+	- FileField
+	- ImageField
+	- IntegerField
+	- TextField
+	- URLField
+	
+- RELATIONSHIP FIELDS
+
+---
+####1. FIELD OPTION
+
+- __Following options are all avaialble to all fields!__
+
+- NULL
+	- Null allows users to insert empty values.
+	- However, it is important to set 'BLANK=TRUE'. It is because __string_based_fields accept ' 'data not as NULL making redundancy in DB.__ 
+	- Therefore, you should set BLANK = TRUE. 
+
+- BLANK
+	- The difference between NULL and BLANK: NULL is purely data-base related. BLANK is validation-related. 
+	- Does validation mean larger than DB?
+	
+- CHOICES
+
+	- Choices consists of tuples. __(value, human readable name)__
+	- The best practice is set choices in the model class, and also define suitable named constant for each value. (which is shown below) 
+	- Default form widget turns into 'select-box'. 
+```
+	YEAR_IN_SCHOOL_CHOICES = (
+    ('FR', 'Freshman'),
+    ('SO', 'Sophomore'),
+    ('JR', 'Junior'),
+    ('SR', 'Senior'),
+)
+```
+
+
+```
+MEDIA_CHOICES = (
+    ('Audio', (
+            ('vinyl', 'Vinyl'),
+            ('cd', 'CD'),
+        )
+    ),
+    ('Video', (
+            ('vhs', 'VHS Tape'),
+            ('dvd', 'DVD'),
+        )
+    ),
+    ('unknown', 'Unknown'),
+)
+```
+The explanation in the documentation for the above 3-dimensional tuples is really shitty. The first element in the tuples mean the group name of the followings __which will be displayed in the 'admin'.__ So, it does not mean much. 
+
+
+
+- EDITABLE
+
+	- If set FALSE, not displayed in admin and modelform. 
+	- Modelform is something that reduces redundancy when there are closely related model and form.  
+	- The default is TRUE. 
+	
+- UNIQUE
+
+- UNIQUE_FOR_DATE
+	- 
