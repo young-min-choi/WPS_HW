@@ -3,7 +3,6 @@
 index
 
 - QuerySet Evaluation 
-- QuerySet API
 - Methods that return new QuerySets
 
 	- filter()
@@ -20,7 +19,9 @@ index
 	- using()
 	- 
 	- 
+	
 - Methods that do not return QuerySets
+	-get()
 
 - Field Lookups 
 
@@ -29,7 +30,7 @@ index
 ---
 질문사항
 1. iterable의 의미 
-2.
+2. It does not work with child models in a multi-table inheritance scenario.
 3.
 4.
 
@@ -181,3 +182,52 @@ Entry.objects.order_by('blog')
 	- SQL문을 실행한다. 
 	- django.db.models.query.RawQuerySet instance를 리턴한다. 
 	- 일반적인 queryset과 마찬가지로 __iterable__하며 이를 통해 instance생성이 가능하다. 
+
+---
+	
+#### 4. Methods that do not return QuerySets
+
+- get()
+	- lookup parameter와 일치하는 record한개를 준다. 
+	- 만약 2개 이상이라면 MultipleObjectsReturned 예외를 발생시킨다. 
+	- 만약 없다면 DoesNotExist 예외를 발생시킨다. 
+	
+- create()
+	- create은 편의를 위한 것으로 object creation와 save를 동시에 하기 위한 것이다. 
+	- 다음의 2가지 예는 동일한 것이다. 
+```
+p = Person.objects.create(first_name="Bruce", last_name="Springsteen")
+and:
+
+p = Person(first_name="Bruce", last_name="Springsteen")
+p.save(force_insert=True)
+```
+
+- get_or_create()
+	- 
+
+
+
+- bulk_create()
+
+	- 한꺼번에 여러개를 만들고 싶을 때 이용할 수 있다. 
+	- 단 한개의 query로 여러 object를 만들 수 있다. 
+	- 제약 사항이 굉장히 많다. 
+		- save() 불가 
+		- MTM관계에서 사용불가 
+		- 다중테이블 상속시 자식 모델에서 사용불가 
+
+- count()
+	- QuerySet의 숫자를 보여준다. 
+	- 절대 예외를 발생시키지 않는다. 
+	- 만약 Entry.objects.count()을 실행시킨다면 Entry의 모든 객체 숫자를 보여준다. 
+	- count()는 결국 SQL의 SELECT COUNT(*)과 동일한 것이다. 
+	- 만약 메모리에서 무언가를 할 예정이 아니라면 len()보다는 count()를 활용하는 것이 훨씬 효율적이다. 
+	
+	
+#### 4. Field Lookups 
+
+> Field lookups are how you specify the meat of an SQL WHERE clause. They’re specified as keyword arguments to the QuerySet methods filter(), exclude() and get().
+
+고기 같은 녀석들 
+

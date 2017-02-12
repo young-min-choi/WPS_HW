@@ -264,6 +264,7 @@ limit_choices_to = limit_pub_date_choices
 	- 왜 굳이 역 참조 필터에서 다른 이름이 필요한지?(질문)
 
 > related_query_name (the name to use for the reverse filter name from the target model)
+
 ```
 # Declare the ForeignKey with related_query_name
 class Tag(models.Model):
@@ -279,6 +280,7 @@ class Tag(models.Model):
 Article.objects.filter(tag__name="important")
 ```
 
+
 ####4. ManyToMany 
 
 - When creating MTM, behind the scene, Django creates intermediary table. (다대다를 만들면 사용자가 따로 중간자 테이블을 만들기 전까지, 장고가 보이지는 않지만 두 테이블을 연결하는 중간자 테이블을 자체적으로 만든다.)
@@ -286,7 +288,8 @@ Article.objects.filter(tag__name="important")
 - Recursive & Symmetrical 
 	- When MTM is set on self, the default value of symmetrical is TRUE.
 	- It does not even add (automatic-created) field_set. If you look at the example below, it will sound so obvious. 
-	
+
+
 ```
 from django.db import models
 
