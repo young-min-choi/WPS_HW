@@ -32,7 +32,7 @@ index
 1. iterable의 의미 
 2. It does not work with child models in a multi-table inheritance scenario.
 3. annotate없이도 잘 살 수 있지 않나? 블로그, 엔트리의 예를 들자면, blogs = Blog.objects.all(); for blog in blogs: blog.entry_set.count()로 찍어내면 되지 않나? 
-4.
+
 
 
 ---

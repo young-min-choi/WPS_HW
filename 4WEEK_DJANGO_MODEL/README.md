@@ -41,10 +41,16 @@ INDEX
 1. NULL 과 BLANK
 2. UNIQUE가 MTM, OTO에서 불가능한 이유 
 3. related_name = '+' 이 굳이 필요한 상황? recursive이외에 
-4. FieldFile에서는 파일이 저장된 URL만 저장한다. 그렇다면 실질적으로 파일은 어디에 저장되는 것인가? 
-5. API란 무엇인가? 
-6. Slug와 URL 필드의 다른점? 
+4. ~~FieldFile에서는 파일이 저장된 URL만 저장한다. 그렇다면 실질적으로 파일은 어디에 저장되는 것인가~~
+	- Storage에 저장된다. __Storage는 DB가 아니다.__ 
+	- DB에는 상대경로만 저장된다. 
 
+
+5. ~~API란 무엇인가~~ [Wikipedia](https://en.wikipedia.org/wiki/Application_programming_interface) 
+	- In general terms, it's a set of clearly defined methods of communication between various software components. A good API makes it easier to develop a computer program by providing all the building blocks, which are then put together by the programmer.
+6. ~~Slug와 URL 필드의 다른점~~  [Stack Overflow](http://stackoverflow.com/questions/39783476/django-slugfield-versus-urlfield)
+	- URLField is used to store URL, where as SlugField is used to store a alphanumeric/varchar value that relates to the title or some description of the model. 
+	- 모델을 URL로 쓰고 싶을때 쓰는게 slug
 
 
 
@@ -114,6 +120,8 @@ The explanation in the documentation for the above 3-dimensional tuples is reall
 	- If applied, all records in the field should be unique thoroughout the field.
 	- __ManyToMany, OneToOne, FileField can't have unique True.__
 	- Why? in MTM it is not possible, in OTO it is so self-evident? 
+	- A field that has UNIQUE=TRUE means it has an index(implicitly)
+	
 
 - UNIQUE_FOR_DATE
 	- Put this option to be equal to the name of DateTimeField or other things. 
