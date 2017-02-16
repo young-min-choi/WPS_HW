@@ -12,6 +12,8 @@ Index
 
 
 ---
+#### BUILT-IN TAG REFERENCE
+
  - autoescape
  	- Controls the autoescape behavior. 
  	- Takes on and off as an argument. 
@@ -103,7 +105,18 @@ In template.html, the following paths would be valid:
 
 - regroup 
 	- It takes 3 required arguments, name of list, variables to be in list, the attribute to group by. 
-	- 
+	- What if you want to regroup a list of cities by a country? 
+
+```
+{% regroup cities|dictsort:"country" by country as country_list %}
+```
+- cont. 
+	- grouper: the item that was grouped by 
+	- list: a list in a group 
+	- if the original list is not in order? two solutions!
+		- use order_by in prior
+		- {% regroup cities|dictsort:"country" by country as country_list %} 
+		- dictsort: 사전 정렬 
 
 
 - include 
@@ -128,3 +141,61 @@ It is the {% now "jS \o\f F" %}
 ('^client/([0-9]+)/$', app_views.client, name='app-views-client')
 {% url 'app-views-client' client.id %} 
 ```
+
+- with 
+
+	- Stores an expensive method 
+	- The usage is below.
+```
+{% with total=business.employees.count %}
+    {{ total }} employee{{ total|pluralize }}
+{% endwith %}
+```
+__total__ is the variable name. 
+It can be only used in between with and endwith. 
+
+#### BUILT-IN FILTER REFERENCE 
+
+- add 
+	- add an value to a given value. 
+	- you can add
+	- It can add every list, dict, value, and integer(integer represented in string) 
+```
+{{ value|add:"2" }}
+{{ first|add:second }}
+```
+
+- addslashes 
+	- used for string escaping 
+	
+```
+{{ value|addslashes }}
+```
+
+-capfirst 
+	- make the first character of the value uppercase. if it's not string it does not have impact. 
+	
+- center
+	- center the letters with given value used for space length. 
+
+```
+"{{ value|center:"15" }}"
+If value is "Django", the output will be "     Django    ".
+```
+
+- dictsort 
+```
+{{ value|dictsort:"name" }}
+```
+sort the dict by a key named 'name'. 
+
+the following is the result. 
+
+```
+[
+    {'name': 'amy', 'age': 22},
+    {'name': 'joe', 'age': 31},
+    {'name': 'zed', 'age': 19},
+]
+```
+
