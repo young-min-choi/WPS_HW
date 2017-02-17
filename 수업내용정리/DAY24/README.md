@@ -1,6 +1,6 @@
 #24일차 
 
-실수 리스트
+####실수 리스트
 - 반드시 urls patterns 에서 ^$ 명시해주기. 그렇지 않으면 앞에 것이 다 잡아 먹는다. 
 - html extend시 {% block content %} 만들어주기 
 - STATICFILES_DIR 헷갈리지 말기 
@@ -11,7 +11,7 @@
 
 ---
 
-더 찾아봐야할 내용 
+####더 찾아봐야할 내용 
 
 1. ~~unique_together~~ [장고 다큐멘테이션](https://docs.djangoproject.com/en/1.10/ref/models/options/)
 	- Sets of field names that, taken together, must be unique:
@@ -28,7 +28,7 @@
 		- expand it to HTML markup using template variables
 ---
 
-수업 로드 
+####수업 로드 
 
 - member/models.py
 	- class MyUser
@@ -61,6 +61,8 @@
 		- authenticate() 의 활용 
 		- request.method에 따라 if문 설정하기 
 ---
+####수업내용포인트
+
 
 1. MTM는 DB상에 존재하지 않는, 장고에서의 설정이다. 
 그러므로 UNIQUE자체가 의미가 없다. UNIQUE는 DB상의 처리이기 때문이다. 
