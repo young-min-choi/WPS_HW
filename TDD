@@ -1,0 +1,23 @@
+
+#TDD
+
+#### 실수목록
+1. request = HttpRequest() 괄호를 빼먹지 말자. 
+	- 테스트 함수에서 request 객체를 만들 때 
+
+
+
+---
+#### 더 알아보기 
+
+- 다형성 트리 파서 
+- 재귀 처리 
+- generator expression 
+- CSRF
+
+---
+
+#### 에러목록
+
+- AttributeError: type object 'HttpRequest' has no attribute 'POST'
+	- request = HttpRequest()

@@ -2,7 +2,9 @@
 
 #### 실수사항 
 - no such column as post_post_isvisible: 마이그레이션을 안했다. 
-- __models.py__ 건드릴때마다 반드시 migration하기. 
+ __models.py__ 건드릴때마다 반드시 migration하기. 
+
+
 
 ---
 ####질문사항

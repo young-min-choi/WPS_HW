@@ -24,7 +24,7 @@ if settings.DEBUG:
 - The following is important. 
 	- In post/modes.py, photo = models.ImageField(__upload_to='post'__, blank=True)
 	- my image file lives in __django_app/media/post/세기의_발견.png__
-	- So if you want that file in the URL env, you can hit __:8000/media/post/세기의_발견.png__
+	- So if you want that file in the URL env, you can hit __:8000/media/post/세기의_발견.png__ (which is set by MEDIA_URL) 
 	
 - What is the role of the following? 
 ```

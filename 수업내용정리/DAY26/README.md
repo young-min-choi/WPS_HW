@@ -1,18 +1,26 @@
 # 26일차 
 
-Trouble Shooting 
+####실수목록  
 
-- 쉼표 빼먹기
-- urlpatterns 는 리스트 여야 한다.
+- 쉼표 빼먹지 말기 
+```
+urlpatterns = [
+url(), 
+url(),
+] 
+```
+- urlpatterns 는 리스트 여야 한다. urlpatterns = [] (O) // urlpatterns = {} (X)
+
 - urls.py 파일에 views함수 이름 오기입. 
+
 - like_users = models.ManyToManyField(
         MyUser,
         through='PostLike',
         related_name= 'likers'
     )
-   -  url(r'')이렇게 하면 아무거나 다 잡아먹는다. 조심하기 
+-  url(r'')이렇게 하면 아무거나 다 잡아먹는다. 조심하기 
    
-   - <!--{% if post.comment_set.count = 1 %}-->
+- <!--{% if post.comment_set.count = 1 %}-->
 ---
 
 더 찾아봐야할 내용 
