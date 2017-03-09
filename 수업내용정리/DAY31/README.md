@@ -55,7 +55,8 @@ AUTH_USER_MODEL = 'member.MyUser'
  	- template css load하는 부분에 추가적인 파라미터를 입력해서 이를 해결할 수 있다.
  	- 추천하는 방법으로는 ?{% now 'c' %}을 입력하면 된다. 
  
-- cleaned_data의 의미는
+- ~~cleaned_data의 의미~~
+	- cleaning이 validation보다 넓지만 사실은 두개가 거의 같은 개념이라고 할 수 있다. 
 
 
 - 이미지 url을 알때 이것으로 파일을 save하기 위해 쓰이는 urllib.urlretrieve의 역할은
