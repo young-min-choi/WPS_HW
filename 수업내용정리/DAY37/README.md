@@ -6,6 +6,10 @@
 
 	- STORAGE_DIRS를 중복선언한 경우. 
 
+
+- django.core.exceptions.ImproperlyConfigured: Error loading psycopg2 module: No module named 'psycopg2'
+	- pip install psycopg2 로 설치했다. 
+
 ---
 ####더 찾아봐야할 내용 및 질문 
 
@@ -14,6 +18,21 @@
 > Static vs Dynamic
 A static web site is a website made up of “flat” or “stationary” files, that are delivered to the end user exactly as stored. Most commonly, static websites are a collection of plain .html files.
 Dynamic web sites, on the other hand, are generated for the user on the fly by an application server. An example of a dynamic web site would be any WordPress site.
+
+- sudo systemctl daemon-reload의 의미 
+> After modifying a unit file, you should reload the systemd process itself to pick up your changes:
+
+- 다음의 의미?
+```
+● uwsgi.service
+   Loaded: not-found (Reason: No such file or directory)
+   Active: inactive (dead)
+```
+
+- nginx란? 
+https://wiki.archlinux.org/index.php/nginx
+
+
 
 ---
 
@@ -125,3 +144,5 @@ if STORAGE_S3:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_STORAGE = 'deploy_ec2.storages.StaticStorage'
 ```
+
+- 모든 파일들은 기본적으로 storage에 올라가게 된다. STATIC이나 MEDIA의 차이는 그 파일이 올라가는 과정이지 올라간 이후에는 모두 우리가 지정한 S3 Storage에서 꺼내와서 웹사이트 요청에 대응하게 된다. 
