@@ -1,25 +1,28 @@
 # 40일차 
 
 ####실수 리스트 
-
 -     
-
 ---
 ####더 찾아봐야할 내용 및 질문 
 
 - pastebin
 
-- URL/URI의 차이점: 동적인 웹이 구성됨에 따라 URI가 활용도가 더 높다?
+- ~~URL/URI의 차이점: 동적인 웹이 구성됨에 따라 URI가 활용도가 더 높다~~
+	- URI: Uniform Resource Identifier로 가장 상위개념. 문자열을 통해 자원을 식별.
+	-URL: Uniform Resource Locator는 리쏘스의 위치를 나타낸다. www.naver.com/doc.pdf가 예시에 해당. 
+	- URI는 URL의 개념을 포함하여 자원을 식별하는 문자열로 생각하면 된다. 이는 쿼리가 될 수도 있으며, RESTful구조가 될수도 있다. 
 
-- CRUD 
+- ~~CRUD란~~
+	- Create, Read, Update, Delete의 준말. 
+	- persistent storage를 위한 기본적인 4개의 동작을 말한다. 
 
-- Class Based View (generic) 왜 쓰는가? 
+- ~~Class Based View (generic) 왜 쓰는가~~
 	- mixin 을 통해 이미 구현된 기능을 상속받는다 (함수는 상속이 불가능)
 	- request.method의 구분을 더 깔끔하게 구현.
 	- 내가 만든 클래스를 라이브러리화 해서 범용적으로 쓸수도 있고 프로젝트 내에서 재사용이 가능하다. 
 
-- MixIn이란? [stackoverflow](http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
-> A mixin is a special kind of multiple inheritance. There are two main situations where mixins are used:
+- ~~MixIn이란~~ [stackoverflow](http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
+> **A mixin is a special kind of multiple inheritance.** There are two main situations where mixins are used:
 1) You want to provide a lot of optional features for a class.
 2) You want to use one particular feature in a lot of different classes.
 
